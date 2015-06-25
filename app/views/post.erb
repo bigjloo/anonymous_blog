@@ -1,4 +1,7 @@
 <div>
+  <% if !@message.nil? %>
+    <b><%= @message %></b><br>
+  <% end %>
   <%=@post.title%><br><br>
   <%=@post.blog%><br><br>
   <%=@post.created_at%><br><br>
@@ -6,7 +9,12 @@
     <%= tag.name%>
   <%end%><br>
   <form action= "/post/edit" method= "post">
-  <a href= "/post/edit">Edit Posts</a>
+    <input type= "submit" value= "Edit Post">
     <input type= "hidden" name="post_id" value= "<%= @post.id %>">
   </form>
+  <form action= "/post/delete" method= "post">
+    <input type= "submit" value= "Delete Post">
+    <input type= "hidden" name="post_id" value= "<%= @post.id %>">
+  </form>
+  <a href= "/"><b>Main</b></a>
 </div>

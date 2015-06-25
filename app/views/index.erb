@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Welcome to 'BLOGNAME'</h1>
+  <% if !@message.nil? %>
+    <b><%= @message %></b><br>
+  <% end %>
   <h2><a href= "/post/new">new post</a></h2>
   <section>
     <% @all_posts.each do |post| %>

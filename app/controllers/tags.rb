@@ -6,5 +6,7 @@ Tags will be created via the Post-creation form.
 =end
 
 get '/tag/:id' do
-"Hello World"
+	@tag = Tag.find(params[:id]).name
+	@all_post = Tag.find(params[:id]).posts.all
+	erb :tag_show
 end

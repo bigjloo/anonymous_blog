@@ -38,9 +38,23 @@ post '/post/success' do
 end
 
 post '/post/edit' do
-  p params[:post_id]
-  p "params= #{params[:post_id]}"
+  # p params[:post_id]
+  # p "params= #{params[:post_id]}"
+  # @id = params[:post_id].to_i
+  # Post.update(@id, )
+  erb :update
+end
+
+post '/post/edit_done' do
+  Post.update(post.id, params)
+  @message = "Post updated!"
+  erb :post
 end
 
 get '/post/delete' do
+  @id = params[:@post_id]
+  Post.destroy(@id)
+  @message = "Post #{Post.find(@id).title} deleted!"
+  erb :index
 end
+
