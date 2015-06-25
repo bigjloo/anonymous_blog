@@ -1,0 +1,23 @@
+Add helpers here as *.rb files, e.g.,
+
+app/helpers/formatting.rb
+
+helpers do
+  def em(text)
+    "<em>#{text}</em>"
+  end
+end
+
+
+////////////////////
+
+website that shows post that has many tags.
+when clicked on tags will show the post tagged to that tag
+
+index-
+shows x amount of posts order by created_at
+
+post - title, blog, posts_tags_id, timestamps
+tag - name, posts_tags_id, timestamps
+posts_tags - post_id, tag_id, timestamps
+

@@ -1,0 +1,12 @@
+<div>
+  <%=@post.title%><br><br>
+  <%=@post.blog%><br><br>
+  <%=@post.created_at%><br><br>
+  <%@post.tags.each do |tag|%>
+    <%= tag.name%>
+  <%end%><br>
+  <form action= "/post/edit" method= "post">
+  <a href= "/post/edit">Edit Posts</a>
+    <input type= "hidden" name="post_id" value= "<%= @post.id %>">
+  </form>
+</div>

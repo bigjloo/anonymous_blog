@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome to 'BLOGNAME'</h1>
+  <h2><a href= "/post/new">new post</a></h2>
+  <section>
+    <% @all_posts.each do |post| %>
+    <p>
+    <a href= "/post/show/<%=post.id%>"><%=post.title %></a>
+    <%=post.created_at %>
+    <span style= "color:blue">Tags:</span>
+    <%post.tags.each do |tag| %>
+      <%=tag.name%>
+    <%end%>
+  </p>
+
+    <% end %>
+  </section>
+</div>
