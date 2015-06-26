@@ -1,5 +1,7 @@
+
+
 <div class= 'container'>
-	<h2>Posts for tag= <%= @tag %></h2>
+	<h2>Posts for '<%= @tag.name %>'</h2>
 	<% @all_post.each do |post| %>
 	<a href= "/post/show/<%=post.id%>"><%=post.title %></a> <br><br>
 	<%= post.blog %> <br><br>

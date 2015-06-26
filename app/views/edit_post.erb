@@ -1,0 +1,10 @@
+<div class= 'container'>
+  <form action="/post/<%= @post.id %>" method= "post">
+    <input type= "hidden" name= "_method" value= "patch">
+    Title<br><br>
+    <input type= "text" name="post[title]" value= "<%= @post.title %>"><br><br>
+    Blog<br><br>
+    <textarea name= "post[blog]" rows= 8 cols= 40 ><%= @post.blog %></textarea><br><br>
+    <input type= "submit" value= "Update post!">
+  </form>
+</div>

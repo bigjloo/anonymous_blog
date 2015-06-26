@@ -1,3 +1,9 @@
+<% if !@errors.nil? %>
+  <%= @errors %>
+<% end %>
+
+
+
 <div class="container">
   <h1>Welcome to 'BLOGNAME'</h1>
   <% if !@message.nil? %>
@@ -7,14 +13,14 @@
   <section>
     <% @all_posts.each do |post| %>
     <p>
-    <a href= "/post/show/<%=post.id%>"><%=post.title %></a>
-    <%=post.created_at %>
-    <span style= "color:blue">Tags:</span>
-    <%post.tags.each do |tag| %>
-      <%=tag.name%>
-    <%end%>
-  </p>
-
+      <a href= "/post/<%= post.id %>"><%=post.title %></a><br><br>
+      <%= post.blog %><br><br>
+      <%=post.created_at %><br>
+      <span style= "color:blue">Tags:</span>
+      <%post.tags.each do |tag| %>
+        <a href= "/tag/<%= tag.name %>"><%= tag.name %></a>
+      <%end%>
+    </p>
     <% end %>
   </section>
 </div>
