@@ -10,7 +10,17 @@ end
 post '/post' do
 
   @post = Post.new(params[:post])
-
+  if @post.save
+    if logged_in?
+      @post.update(user_id: @current_user.id)
+      redirect to "/user/#{@current_user.id}"
+    end
+    redirect to "/urls/#{@url.id}"
+  else
+    @urls = Url.all
+    @error = "Please key in the valid url"
+    erb :index
+  end
   if @post.save
     @tags = params[:tags].split(", ")
      @tags.each do |tag|

@@ -17,4 +17,6 @@ PostsTag.create(post_id: 2, tag_id: 1)
 PostsTag.create(post_id: 2, tag_id: 3)
 PostsTag.create(post_id: 3, tag_id: 1)
 
+User.create(name: "User 1", email: "user1@gmail.com", password: "password")
+User.create(name: "User 2", email: "user2@gmail.com", password: "password")
 

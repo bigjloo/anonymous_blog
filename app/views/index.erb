@@ -1,11 +1,20 @@
-<% if !@errors.nil? %>
-  <%= @errors %>
-<% end %>
 
 
 
 <div class="container">
+  <% if !@errors.nil? %>
+  <h1><%= @errors %></h1>
+  <% end %>
+
   <h1>Welcome to 'BLOGNAME'</h1>
+    <% unless logged_in? %>
+  <form action= "/user/log_in" method= "get">
+    <input type= "submit" value= "USER LOG IN" >
+  </form>
+  <form action= "/user/new" method= "get">
+    <input type= "submit" value= "Sign Up!" >
+  </form>
+  <% end %>
   <% if !@message.nil? %>
     <b><%= @message %></b><br>
   <% end %>
