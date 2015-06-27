@@ -1,8 +1,19 @@
-<div>
+<div class= 'container'>
   <h2> USER PERSONAL PAGE</h2>
   <h3>Welcome <%= @user.name %></h3>
   <h2><a href= "/post/new">new post</a></h2>
   </form>
+  <% @user.posts.reverse.each do |post| %>
+    <p>
+      <a href= "/post/<%= post.id %>"><%=post.title %></a><br><br>
+      <%= post.blog %><br><br>
+      <%=post.created_at %><br>
+      <span style= "color:blue">Tags:</span>
+      <% post.tags.each do |tag| %>
+        <a href= "/tag/<%= tag.name %>"><%= tag.name %></a>
+      <%end%>
+  <% end %>
+    </p>
   <br><br>
   <form action= "/session/log_out" method= "get">
   <input type= "submit" value= "Log out">

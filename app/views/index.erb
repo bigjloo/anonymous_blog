@@ -18,13 +18,15 @@
   <% if !@message.nil? %>
     <b><%= @message %></b><br>
   <% end %>
-  <h2><a href= "/post/new">new post</a></h2>
+  <h2><a href= "/post/new">New Anonymous Post</a></h2>
   <section>
-    <% @all_posts.each do |post| %>
+    <% @all_posts.reverse.each do |post| %>
     <p>
       <a href= "/post/<%= post.id %>"><%=post.title %></a><br><br>
       <%= post.blog %><br><br>
       <%=post.created_at %><br>
+      By:
+        <b>Anonymous</b><br>
       <span style= "color:blue">Tags:</span>
       <%post.tags.each do |tag| %>
         <a href= "/tag/<%= tag.name %>"><%= tag.name %></a>
